@@ -1,0 +1,24 @@
+static BOOL LaunchCommand(TFCCOB* commonCommandObject) 
+{ 
+    if(ACCERR_FPVIOL_ERROR) // Check for ACCERR flag and FPVIOL flag 
+    FTFE_FSTAT = FTFE_FSTAT_ACCERR_MASK | FTFE_FSTAT_FPVIOL_MASK; // Clear past errors (0x30) 
+
+    FTFE_FCCOB0 = commonCommandObject->Command; // Place structure content into FCCOB registers 
+    FTFE_FCCOB1 = commonCommandObject->FlashAddress1; 
+    FTFE_FCCOB2 = commonCommandObject->FlashAddress2; 
+    FTFE_FCCOB3 = commonCommandObject->FlashAddress3; 
+
+    FTFE_FCCOB8 = commonCommandObject->DataByte0; 
+    FTFE_FCCOB9 = commonCommandObject->DataByte1; 
+    FTFE_FCCOBA = commonCommandObject->DataByte2; 
+    FTFE_FCCOBB = commonCommandObject->DataByte3;
+
+    FTFE_FCCOB4 = commonCommandObject->DataByte4; 
+    FTFE_FCCOB5 = commonCommandObject->DataByte5; 
+    FTFE_FCCOB6 = commonCommandObject->DataByte6; 
+    FTFE_FCCOB7 = commonCommandObject->DataByte7; 
+    FTFE_FSTAT = FTFE_FSTAT_CCIF_MASK; // Launch command sequence 
+    while(!(FTFE_FSTAT & FT nm FE_FSTAT_CCIF_MASK)) 
+    {} // Wait for command completion 
+
+    return bTRUE; }

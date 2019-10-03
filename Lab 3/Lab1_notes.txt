@@ -1,0 +1,43 @@
+pE low level -sets up clock
+
+poll: -check RDRF flag, check TDRE empty
+
+global: txFifo, rxFifo
+
+handlePacket
+
+ 
+
+UARTx_BDH (baud rate high)
+
+UARTx_BDL (baud rate low)
+
+
+//UARTx_C1 (M bit and parity should all be set to 0)
+
+
+UARTx_C2 (control (tx and rx))
+
+
+UARTx_S1 (TDRE and RDRF)
+TWFIFO[TXWATER] to 0x0
+
+UARTx_D (Data)
+
+UARTx_C4 (for baud rate fine adjust)
+
+
+UART_INIT:
+
+1. SIM_SCGC4 pin 12 (UART_2) 
+
+2. SIM_SCGC5 pin 13 (PORT_E)
+
+3. set PTE16 and PTE17 to alt 3 (tx rx for UART_2)
+
+4. set baud rate UARTx_BDH (baud rate high), UARTx_BDL (baud rate low)UARTx_C4 (for baud rate fine adjust) (page 1974)
+
+5. set tx and rx UARTx_C2  
+
+6.-> ask about setting TWFIFO[TXWATER] = 0
+
