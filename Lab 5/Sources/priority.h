@@ -1,0 +1,12 @@
+/*
+ * priority.h
+ *
+ *  Created on: 18 Oct 2019
+ *      Author: 12876417
+ */
+
+#define PRIORITY_RECEIVE_THREAD 1
+#define PRIORITY_TRANSMIT_THREAD 2
+#define PRIORITY_TIME_THREAD 3
+#define PRIORITY_PIT_THREAD 4
+#define PRIORITY_PACKETPOLL_THREAD 30
