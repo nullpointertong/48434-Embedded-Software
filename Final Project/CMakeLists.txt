@@ -1,0 +1,62 @@
+# cmake_minimum_required(VERSION <specify CMake version here>)
+project(40)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(Generated_Code)
+include_directories(Library)
+include_directories(Sources)
+include_directories(Static_Code)
+include_directories(Static_Code/IO_Map)
+include_directories(Static_Code/PDD)
+
+add_executable(40
+        .metadata/.plugins/org.eclipse.cdt.make.core/specs.c
+        .metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp
+        Generated_Code/Cpu.c
+        Generated_Code/Cpu.h
+        Generated_Code/IO_Map.h
+        Generated_Code/PE_Const.h
+        Generated_Code/PE_Error.h
+        Generated_Code/PE_LDD.c
+        Generated_Code/PE_LDD.h
+        Generated_Code/PE_Types.h
+        Generated_Code/Vectors.c
+        Library/FIFO.h
+        Library/Flash.h
+        Library/FTM.h
+        Library/LEDs.h
+        Library/packet.h
+        Library/PIT.h
+        Library/RTC.h
+        Library/types.h
+        Library/UART.h
+        Project_Settings/Startup_Code/startup.c
+        Sources/analog.c
+        Sources/analog.h
+        Sources/Events.c
+        Sources/Events.h
+        Sources/FIFO.c
+        Sources/FIFO.h
+        Sources/Flash.c
+        Sources/Flash.h
+        Sources/FTM.c
+        Sources/FTM.h
+        Sources/LEDs.c
+        Sources/LEDs.h
+        Sources/main.c
+        Sources/median.c
+        Sources/median.h
+        Sources/packet.c
+        Sources/packet.h
+        Sources/PIT.c
+        Sources/PIT.h
+        Sources/RTC.c
+        Sources/RTC.h
+        Sources/SPI.c
+        Sources/SPI.h
+        Sources/types.h
+        Sources/UART.c
+        Sources/UART.h
+        Static_Code/IO_Map/MK70F12.h
+        Static_Code/PDD/PDD_Types.h)
